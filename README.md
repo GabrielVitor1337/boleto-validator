@@ -25,7 +25,7 @@ A API está direcionada para a url **localhost:3000/** você deve adicionar a li
 
 ## Exemplo de utilização
 
-Nesse primeiro exemplo é adicionado a seguinte linha digitavel ao Endpoint **23793381286003502972174000063300383400000079000** a mesma traz o seguinte resultado:
+Nesse exemplo é adicionado a seguinte linha digitavel ao Endpoint **23793381286003502972174000063300383400000079000** a mesma traz o seguinte resultado:
 
 ```json
 Resposta: {
@@ -38,5 +38,7 @@ Resposta: {
 		}
 	   } 
 ```
+
+Esse exemplo também funciona para o tipo de pagamentos de concessionárias basta colocar a linha digitável do mesmo conseguindo a mesma reposta.
 
 Ao tentar adicionar uma linha digitável inválida o programa irá mostrar ***"digitableLineValid":false*** e irá parar o programa imediatamente.
