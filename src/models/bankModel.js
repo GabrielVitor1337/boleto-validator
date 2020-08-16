@@ -1,20 +1,19 @@
-const { calculateModule10,calculateModule11,formatValue } = require('../utils/utils');
+const { calculateModule10, calculateModule11, formatValue } = require('../utils/utils');
 
 function firstType(barcode) {
     let data = {};
-    let count = 0;
     data.value = formatValue(barcode.substr(37, 10));
     data.expirateDate = formatExpirateDate(parseInt(barcode.substr(33, 4)));
     let fieldOne = barcode.split("").slice(0, 9);
     let fieldTwo = barcode.split("").slice(10, 20);
     let fieldThree = barcode.split("").slice(21, 31);
-    if (calculateModule10(fieldOne) !== parseInt(barcode.substr(9, 1))) count += 1;
-    if (calculateModule10(fieldTwo, true) !== parseInt(barcode.substr(20, 1))) count += 1;
-    if (calculateModule10(fieldThree, true) !== parseInt(barcode.substr(31, 1))) count += 1;
+    if (calculateModule10(fieldOne) !== parseInt(barcode.substr(9, 1))) { return { digitableLineValid: false } };
+    if (calculateModule10(fieldTwo, true) !== parseInt(barcode.substr(20, 1))) { return { digitableLineValid: false } };
+    if (calculateModule10(fieldThree, true) !== parseInt(barcode.substr(31, 1))) { return { digitableLineValid: false } };
     data.barcode = transformBarcode(barcode);
     let barCodeWithoutCV = data.barcode.substr(0, 4) + data.barcode.substr(5, 40);
-    if (calculateModule11(barCodeWithoutCV.split("").reverse()) !== parseInt(barcode.substr(32, 1))) count += 1;
-    data.digitableLineValid = count > 0 ? false : true;
+    if (calculateModule11(barCodeWithoutCV.split("").reverse()) !== parseInt(barcode.substr(32, 1))) { return { digitableLineValid: false } };
+    data.digitableLineValid = true;
     return data;
 }
 
