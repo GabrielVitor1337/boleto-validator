@@ -21,7 +21,7 @@ $ **npm start**
 
 A API está direcionada para a url **localhost:3000/** você deve adicionar a linha digitável na url como no exemplo a seguir **localhost:3000/23793381286003502972174000063300383400000079000** sem pontos e espaços.
 
-### Exemplo de utilização
+## Exemplo de utilização
 
 Nesse primeiro exemplo é adicionado a seguinte linha digitavel ao Endpoint **23793381286003502972174000063300383400000079000** a mesma traz o seguinte resultado:
 
