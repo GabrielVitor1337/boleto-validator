@@ -1,5 +1,7 @@
 # Validador de Boleto
 
+## Introdução
+
 O programa foi escrito em Node.js utilizando o [express](https://www.npmjs.com/package/express) para criar um API que pudesse validar os seguintes pontos:
 
 1. Se a linha digitada é válida
