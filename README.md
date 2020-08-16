@@ -1,41 +1,33 @@
-# Teste Back End Ewally
+# Validador de Boleto
 
-O teste consiste em escrever um programa em Node.js que expõe uma API na qual é dada como entrada uma linha digitada de um boleto e que retorna:
-- Se a linha digitada é válida
-- O valor do boleto, se existir
-- A data de vencimento do boleto, se existir
-- Os 44 dígitos correspondentes ao código de barras desse boleto
+O programa foi escrito em Node.js utilizando o express para criar um API que pudesse validar os seguintes pontos:
 
-É essencial que seja feita a validação dos dígitos verificadores.
+1. Se a linha digitada é válida
+2. O valor do boleto, se existir
+3. A data de vencimento do boleto, se existir
+4. Os 44 dígitos correspondentes ao código de barras desse boleto
 
-Existem 2 tipos de boletos que seguem regras diferentes: títulos bancários e pagamentos de concessionárias. O código deve funcionar corretamente para ambos.
+Além desse pontos é feita a validação dos dígitos verificadores e distingue dois tipos de boletos: títulos bancários e pagamentos de concessionárias. O código deve funcionar corretamente para ambos.
 
-## Passos
+## Instalação
 
-### 1. Iniciar o projeto Local
-### 2. Endpoint
-### 3. Retornos
+Ao clonar o projeto você deve executar os comandos no seu terminal para rodar o programa corretamente.
 
-## 1. Iniciar o projeto Local
+$ **npm install** 
 
-Ao clonar o projeto você deve executar o comando **npm install** na parte raiz do projeto. Logo após instalar as dependências execute o comando **npm start** para rodar a API local.
+$ **npm start**
 
-## 2. Endpoint
+## Utilização
 
-A API está direcionada para o endpoint **localhost:3000/** você deve adicionar a linha digitável no Endpoint como no exemplo a seguir **localhost:3000/23793381286003502972174000063300383400000079000** sem pontos e espaços.
+A API está direcionada para a url **localhost:3000/** você deve adicionar a linha digitável na url como no exemplo a seguir **localhost:3000/23793381286003502972174000063300383400000079000** sem pontos e espaços.
 
-## 3. Retornos
+### Exemplo de utilização
 
-Esse projeto foi projetado pra receber dois tipos títulos bancários ou pagamentos de concessionárias, sendo assim consegue as seguintes respostas:
-
-### Primeira resposta
-
-colocando um título bancário consegue a seguinte resposta:
-
-Endpoint: http://localhost:3000/23793381286003502972174000063300383400000079000
+Nesse primeiro exemplo é adicionado a seguinte linha digitavel ao Endpoint **23793381286003502972174000063300383400000079000** a mesma traz o seguinte resultado:
 
 ```json
-Resposta: {"result":
+Resposta: {
+	"result":
 		{
 		"value":79000,
 		"expirateDate":"06-08-2020",
@@ -45,32 +37,4 @@ Resposta: {"result":
 	   } 
 ```
 
-### Segunda resposta
-
-colocando um pagamento de concessionária consegue a seguinte resposta:
-
-Endpoint: http://localhost:3000/846100000013086000240209024081022634618270411027
-
-```json
-Resposta: {"result":
-		{
-		"barcode":"84610000001086000240200240810226361827041102",
-		"digitableLineValid":true,
-		"value":10860
-		}
-	   } 
-```
-
-### Terceira resposta
-
-caso a linha digitável esteja incorreta tem a seguinte resposta:
-
-Endpoint: http://localhost:3000/846100000013086000240209024081022634618270411027
-
-```json
-Resposta: {"result":
-		{
-		"digitableLineValid":false
-		}
-	  }
-```
+Ao tentar adicionar uma linha digitável inválida o programa irá mostrar ***"digitableLineValid":false*** e irá apagar o programa imediatamente.
