@@ -37,4 +37,4 @@ Resposta: {
 	   } 
 ```
 
-Ao tentar adicionar uma linha digitável inválida o programa irá mostrar ***"digitableLineValid":false*** e irá apagar o programa imediatamente.
+Ao tentar adicionar uma linha digitável inválida o programa irá mostrar ***"digitableLineValid":false*** e irá parar o programa imediatamente.
