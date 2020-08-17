@@ -43,8 +43,8 @@ Resposta: {
 | --- | --- | --- |
 | **value** | Int | valor do boleto com os centavos |
 |**expirateDate** | String | data de vencimento no formato DD-MM-AAAA|
-|**barcode**| String | código do boleto ja transormado|
-|**digitableLineValid** | Boolean | verifica se a linha digitavel informada é válida|
+|**barcode**| String | código do boleto ja transformado a partir da linha digitável|
+|**digitableLineValid** | Boolean | verifica se a linha digitável informada é válida|
 
 Esse exemplo também funciona para o tipo de pagamentos de concessionárias basta colocar a linha digitável do mesmo conseguindo a mesma reposta.
 
